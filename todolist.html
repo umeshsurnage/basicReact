@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="Description" content="Enter your description here" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <title>To-Do List </title>
+    <style>
+        body {
+            background: rgb(34, 193, 195);
+            background: linear-gradient(90deg, rgba(34, 193, 195, 1) 0%, rgba(155, 45, 253, 1) 100%);
+            height: 1rem;
+        }
+        
+        .wrapper {
+            background: #fff;
+            margin-top: 50px;
+            padding: 20px;
+            border-radius: 10px;
+            -webkit-border-radius: 10px;
+            -moz-border-radius: 10px;
+            -ms-border-radius: 10px;
+            -o-border-radius: 10px;
+        }
+        
+        .linethrough {
+            text-decoration: line-through;
+            color: red;
+        }
+        
+        .show {
+            display: block!important;
+        }
+        
+        .hide {
+            display: none!important;
+        }
+    </style>
+</head>
+
+<body>
+    <a href="index.html" style="color: #fff;padding:10px; background-color: red;">
+    Home</a>
+    <div class="container ">
+        <div class="row d-flex justify-content-center">
+            <div class="col-12 col-sm-10 col-md-6">
+                <div class="wrapper ">
+                    <div id="loginBox">
+                        <h1>Login Here</h1>
+                        <hr>
+                        <form action="">
+                            <div class="form-group mb-3">
+                                <div class="row">
+                                    <div class="col-12">
+                                        <input type="text" id="username" class="form-control" placeholder="User Name">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group mb-3">
+                                <div class="row">
+                                    <div class="col-12">
+                                        <input type="password" id="password" class="form-control" placeholder="Enter Password">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group mb-3">
+                                <div class="row">
+                                    <div class="col-6">
+                                        <input type="submit" id="" value="Login" class="form-control btn btn-info text-white fw-bold" onclick="return login()"></div>
+
+                                    <div class="col-6">
+                                        <input type="reset" value="Clear" class="form-control btn
+                        btn-danger text-white fw-bold ">
+                                    </div>
+
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div id="toDo">
+                        <h1>To-Do List <i class="fa-solid fa-power-off float-end h4 mt-2
+                  btn btn-danger" onclick="logout()" id="logout" title="Logout"></i></h1>
+                        <hr>
+                        <form action="">
+                            <div class="form-group mb-3">
+                                <div class="row">
+                                    <div class="col-10 col-sm-9 col-md-10 ">
+                                        <input type="name" id="msg" class="form-control" placeholder="Name">
+                                    </div>
+                                    <label class="col-2 col-sm-3 col-md-2">
+                      <input type="button"
+                        onclick="getMsg()" value="Add"
+                        class="form-control btn btn-info">
+                    </label>
+                                </div>
+                            </div>
+                            <div class="form-group mb-3 pt-2" id="dynamic">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        window.onload = function() {
+            loadMessages();
+        };
+
+        function saveMessages() {
+            let dynamic = document.getElementById('dynamic');
+            localStorage.setItem('messages', dynamic.innerHTML);
+        }
+
+        function loadMessages() {
+            let dynamic = document.getElementById('dynamic');
+            dynamic.innerHTML = localStorage.getItem('messages') || '';
+        }
+        toDo.classList.add('hide')
+
+        function logout() {
+            // proper logic :
+            let logout = document.querySelector('#logout');
+            loginBox.classList.remove('hide');
+            toDo.classList.remove('show')
+
+            loginBox.classList.add('show');
+            toDo.classList.add('hide');
+
+            // simple way
+            //location.reload(true);
+        }
+
+        function login() {
+            let userName = document.querySelector('#username').value;
+            let password = document.querySelector('#password').value;
+            let loginBox = document.querySelector("#loginBox");
+            let toDo = document.querySelector("#toDo");
+
+            if (userName === "1" && password === "1") {
+                alert("Done!");
+                loginBox.classList.add('hide');
+                toDo.classList.remove('hide')
+                toDo.classList.add('show')
+
+            } else {
+                alert("Please check the username or password.")
+                return 0;
+            }
+            return false;
+        }
+
+        function getMsg() {
+            let getText = document.getElementById('msg').value;
+            let dynamic = document.getElementById('dynamic');
+            msg.value = '';
+            if (getText !== "") {
+                dynamic.innerHTML += `
+                <div class = 'row'>
+                  <div class = 'col-11 col-sm-10 col-md-8 ' id="lineThrough"    onclick='lineThrough(this)'> ${getText}
+                </div>
+                <label class='col-1 col-sm-2 col-md-4'>
+                  <p class ='btn btn-close' onclick='closeThis(this)'></label> </div>`
+            }
+            saveMessages()
+        }
+
+        function closeThis(remove) {
+            let removeDiv = remove.parentNode.parentNode;
+            removeDiv.parentNode.removeChild(removeDiv);
+            saveMessages()
+        }
+
+        function lineThrough(done) {
+            let tascComplete = done.parentNode;
+            tascComplete.classList.toggle("linethrough")
+            saveMessages()
+        }
+
+        function editThis(edit) {
+            let editedMsg = '';
+            let editedText = prompt("Type here");
+            if (editedText == null || editedText == '') {
+                editedMsg = ""
+            } else {
+                getText = editedText;
+                let update = document.querySelector('#lineThrough');
+                update.textContent = getText
+
+                console.log(update);
+            }
+            return false;
+
+        }
+    </script>
+    <!-- <script>
+        //toDo.classList.add('hide')
+        window.onload = function() {
+            loadMessages();
+        };
+
+        function saveMessages() {
+            let dynamic = document.getElementById('dynamic');
+            localStorage.setItem('messages', dynamic.innerHTML);
+        }
+
+        function loadMessages() {
+            let dynamic = document.getElementById('dynamic');
+            dynamic.innerHTML = localStorage.getItem('messages') || '';
+        }
+
+
+        function login() {
+            let userName = document.querySelector('#username').value;
+            let password = document.querySelector('#password').value;
+            let loginBox = document.querySelector("#loginBox");
+            let toDo = document.querySelector("#toDo");
+
+            if (userName === "1" && password === "1") {
+                alert("Done!");
+
+                loginBox.classList.add('hide');
+                toDo.classList.replace('hide', 'show')
+
+            } else {
+                alert("Please check the username or password.")
+                return 0;
+            }
+            return false;
+        }
+
+        function logout() {
+            // proper logic :
+            // let logout = document.querySelector('#logout');
+            // loginBox.classList.remove('hide');
+            // toDo.classList.remove('show')
+
+            // loginBox.classList.add('show');
+            // toDo.classList.add('hide');
+
+            // simple way
+            location.reload(true);
+        }
+        let getText = ''
+
+        function getMsg() {
+            getText = document.getElementById('msg').value;
+            let dynamic = document.getElementById('dynamic');
+            msg.value = '';
+            if (getText !== "") {
+                dynamic.innerHTML += ` 
+                <div class = 'row'>
+                  <div class = 'col-8 col-sm-8 col-md-8' id="lineThrough" onclick='lineThrough(this)'> ${getText} </div>
+                  <div class='col-2 col-sm-2 col-md-2'>
+                    <div class="row">
+                      <button class ='btn' onclick='return editThis(this)'><i class="fa-solid fa-pen-to-square h5"></i></button></div>
+                  </div>                  
+                  <div class='col-2 col-sm-2 col-md-2'>
+                    <div class="row">
+                      <button class ='btn' onclick='closeThis(this)'><i class="fa-solid fa-close h4"></i></button>
+                    </div>
+                  </div>
+                </div>`
+            }
+            saveMessages()
+        }
+
+        function closeThis(remove) {
+            let removeDiv = remove.parentNode.parentNode.parentNode;
+            removeDiv.parentNode.removeChild(removeDiv);
+            saveMessages()
+        }
+
+        function lineThrough(done) {
+            let tascComplete = done.parentNode;
+            tascComplete.classList.toggle("linethrough")
+            saveMessages()
+        }
+
+        function editThis(edit) {
+            let editedMsg = '';
+            let originalText = document.querySelector('#lineThrough').textContent;
+
+            let editedText = prompt("Type here", originalText);
+            if (editedText == null || editedText == '') {
+                editedMsg = ""
+            } else {
+                let update = document.querySelector('#lineThrough');
+                update = edit.parentNode.parentNode.parentNode.innerText;
+                getText = update;
+                console.log(update);
+
+                // getText = editedText;
+                // let update = document.querySelector('#lineThrough');
+                // update.textContent = getText
+
+                // console.log(update);
+
+
+            }
+            return false;
+        }
+    </script>-->
+</body>
+
+</html>

@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="Description" content="Enter your description here" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.0-beta1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <title>bootstarp</title>
+    <style>
+        .wrapper {
+            width: 650px;
+            height: 300px;
+            background-color: rgb(255, 216, 169);
+            border: 2px solid #000;
+        }
+        
+        .box {
+            width: 200px;
+            height: 100px;
+            border: 2px solid rgb(0, 0, 0);
+        }
+        
+        .inline-block {
+            display: inline-block;
+        }
+        
+        .box2 {
+            height: 100px;
+            border: 2px solid rgb(0, 0, 0);
+        }
+        
+        .red {
+            background-color: red;
+        }
+        
+        .blue {
+            background-color: rgb(175, 175, 255);
+        }
+        
+        .yellow {
+            background-color: yellow;
+        }
+        
+        .green {
+            background-color: rgb(46, 240, 46);
+        }
+        
+        .aqua {
+            background-color: aqua;
+            border: 1px solid #fff;
+            min-height: 150px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-md-12 box1">
+                <div class="logo">
+                    <a href="#"><img src="https://logos-world.net/wp-content/uploads/2023/08/React-Symbol.png" alt="" width="200px"></a>
+                </div>
+                <nav class="nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Grid template</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="flex.html">Flext Tamplate</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="position.html">CSS</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="bootstrap.html">Bootstrap</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="js.html">Javascript </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="react.html">React</a>
+                    </li>
+                </nav>
+            </div>
+            <div class="clearfix">
+            </div>
+        </div>
+    </div>
+    <!-- 1 basic boxes with width property-->
+
+    <div class="wrapper">
+        <div class="box red inline-block">red</div>
+        <div class="box blue inline-block">blue</div>
+        <div class="box yellow inline-block">yellow</div>
+        <div class="box green inline-block">green</div>
+        <div class="box blue inline-block">blue</div>
+    </div>
+
+    <!-- actual bootstrap responsive boxes using col -->
+
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 col-xxl-1 box2 red">1) red</div>
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 col-xxl-1 box2 blue">2) blue</div>
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 col-xxl-1 box2 yellow">3) yellow</div>
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 col-xxl-1 box2 green">4) green</div>
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 col-xxl-1 box2 red">5) red</div>
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 col-xxl-1 box2 blue">6) blue</div>
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 col-xxl-1 box2 red">7) red</div>
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 col-xxl-1 box2 blue">8) blue</div>
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 col-xxl-1 box2 yellow">9) yellow</div>
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 col-xxl-1 box2 green">10) green</div>
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 col-xxl-1 box2 red">11) red</div>
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 col-xxl-1 box2 blue">12) blue</div>
+        </div>
+    </div>
+
+
+
+    <div class="container">
+        <div class="float-start red">
+            <p>This is some content below the floated elements.</p>
+        </div>
+        <div class="float-end green">
+            <p>This is some content below the floated elements.</p>
+        </div>
+        <div class="clearfix"></div>
+        <p>This is some content below the floated elements.</p>
+    </div>
+
+    <!-- Nesting columns -->
+
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-md-2 aqua">Margin</div>
+            <div class="col-xs-12 col-md-8 aqua">
+                <div class="row">
+                    <div class="col-xs-12 col-md-6 aqua">Gallery</div>
+                    <div class="col-xs-12 col-md-6 aqua">
+                        <div class="row">
+                            <div class="col-xs-12 col-md-12 aqua">Title</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-12 col-md-12 aqua">Buy Box</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12 col-md-12 aqua">Description</div>
+                    <div class="col-xs-12 col-md-12 aqua">Related</div>
+                </div>
+                <div class="row"></div>
+            </div>
+            <div class="col-xs-12 col-md-2 aqua">Margin</div>
+        </div>
+    </div>
+
+
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.5.4/umd/popper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.0-beta1/js/bootstrap.min.js"></script>
+
+</body>
+
+</html>

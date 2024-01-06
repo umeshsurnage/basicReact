@@ -1,0 +1,152 @@
+    /**************** css for grid **********/
+    
+    * {
+        padding: 0;
+        margin: 0;
+    }
+    
+    .container {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        height: 100vh;
+        width: 100%;
+        grid-gap: 1rem;
+        justify-content: center;
+        color: #fff;
+    }
+    
+    .box1 {
+        grid-column: 1 / span 4;
+        background: darkblue!important;
+    }
+    
+    .box2 {
+        grid-row: 2/ span 4;
+    }
+    
+    .box3 {
+        grid-column: 2 / span 2;
+        grid-row: 2 / span 2
+    }
+    
+    .box4 {
+        grid-row: 2 / span 4;
+    }
+    
+    .box5 {
+        grid-column: 2 / span 2;
+        grid-row: 4/ span 2;
+    }
+    
+    .box6 {
+        grid-column: 1 / span 4;
+    }
+    
+    @media (max-width: 576px) and (min-width: 300px) {
+        .box1,
+        .box2,
+        .box3,
+        .box4,
+        .box5,
+        .box6 {
+            grid-column: 1 / span 4!important;
+            grid-row: auto;
+        }
+    }
+    
+    a {
+        font-size: 1.5rem;
+        text-decoration: none;
+    }
+    
+    h1 {
+        font-size: 2rem;
+    }
+    
+    h2 {
+        font-size: 1.5rem;
+    }
+    
+    h3 {
+        font-size: 1rem;
+    }
+    
+    h4 {
+        font-size: 0.8rem;
+    }
+    
+    h5 {
+        font-size: 0.5rem;
+    }
+    
+    .box {
+        background-color: rgb(166, 235, 230);
+    }
+    /********** header css *******/
+    
+    .logo {
+        display: flex;
+        justify-content: center;
+    }
+    
+    .nav {
+        background: #00b9cf;
+        display: flex;
+        line-height: 50px;
+        justify-content: center;
+    }
+    
+    .nav a {
+        font-size: 1rem;
+        color: #ffffff;
+        text-decoration: none;
+        padding: 0 20px;
+        display: inline-block;
+    }
+    
+    .nav a:hover {
+        background: darkblue;
+    }
+    /******** box2 css *********/
+    
+    .box2 {}
+    
+    .box h1,
+    .box2 h2,
+    .box4 h2 {
+        margin: 0;
+        background-color: brown;
+        padding: 10px;
+    }
+    
+    .box2 a {
+        font-size: 1rem;
+        padding: 10px;
+        display: block;
+        margin: 0;
+        border-bottom: 1px solid #00b9cf;
+    }
+    
+    .box2 a:hover {
+        background-color: #fff;
+    }
+    
+    .box6 {
+        display: flex;
+        justify-content: center;
+        font-size: 1rem;
+        background-color: darkblue;
+        padding: 20px 0;
+    }
+    
+    .box6 a {
+        font-size: 1rem;
+        color: #00b9cf;
+        display: block;
+        padding: 0 15px;
+        border-left: 1px solid rgb(61, 61, 61);
+    }
+    
+    .box6 a:first-child {
+        border: none;
+    }
